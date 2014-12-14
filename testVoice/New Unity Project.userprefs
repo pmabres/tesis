@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Takohi\Examples\AndroidTTSPlugin\TTSDemoSceneManager.cs">
+    <Files>
+      <File FileName="New Unity Project.sln" Line="1" Column="1" />
+      <File FileName="Assets\Takohi\Examples\AndroidTTSPlugin\TTSDemoSceneManager.cs" Line="20" Column="17" />
+      <File FileName="Assets\Takohi\Android-TTS-Plugin-Read-Me.txt" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
