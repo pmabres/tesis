@@ -36,6 +36,10 @@ public class TokensController : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Metodo que genera los GameObject de las distintas cuevas.
+    /// </summary>
+    /// <param name="cant"></param>
     private void generateTokenInstances(int cant)
     {
         status_tokens = true;
@@ -106,7 +110,8 @@ public class TokensController : MonoBehaviour {
     }
      
     /// <summary>
-    /// Este metodo se usara para hacer un fade de los tokens mediante itween.
+    /// Este metodo se usara para hacer un fade de los tokens mediante itween. 
+    /// *17-02-2015: Actualmente solo modifica la escala de los mismos. 
     /// </summary>
     /// <returns></returns>
     private IEnumerator ShowAndHide ()

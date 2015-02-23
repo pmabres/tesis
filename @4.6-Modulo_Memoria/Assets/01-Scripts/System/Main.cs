@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Main : MonoBehaviour {
@@ -37,6 +38,10 @@ public class Main : MonoBehaviour {
                 {
                     Destroy(go_selected_1.gameObject);
                     Destroy(go_selected_2.gameObject);
+                    Statics.multipler++;
+                    Statics.inMultipler = true;
+                    //falta definir un score de otra forma segun nivel.
+                    AddScore(5);
                 }
                 else
                 {
@@ -44,6 +49,9 @@ public class Main : MonoBehaviour {
                     go_selected_2.gameObject.renderer.material.color = unselected_color;
                     go_selected_1 = null;
                     go_selected_2 = null;
+                    Statics.multipler = 0;
+                    Statics.inMultipler = false;
+                    Statics.Score_Text.text = "SCORE= " + Statics.round_score.ToString();
                 }
             }
 
@@ -62,6 +70,9 @@ public class Main : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Metodo que llena el script estatico con sus respectivos objetos, para un control general.
+    /// </summary>
     private void setStatics()
     {
         Statics.main_controller = this;
@@ -70,13 +81,21 @@ public class Main : MonoBehaviour {
         Statics.game_satus = Statics.Game_Status.pause;
         Statics.Win_Text = GameObject.Find(Constants.Win_Text);
         Statics.Win_Text.SetActive(false);
+        Statics.Score_Text = GameObject.Find(Constants.Score_Text).GetComponent<Text>();
     }
-
+    
+    /// <summary>
+    /// Metodo publico para setear el gameStatus
+    /// </summary>
+    /// <param name="newStatus"></param>
     public void setGameStatus(Statics.Game_Status newStatus)
     {
         Statics.game_satus = newStatus;
     }
 
+    /// <summary>
+    /// Metodo privado que genera el raycast
+    /// </summary>
     void userRaycast()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -94,6 +113,19 @@ public class Main : MonoBehaviour {
                 go_selected_2 = hit.collider.gameObject.GetComponent<Token>();
                 go_selected_2.gameObject.renderer.material.color = selected_color;
             }
+        }
+    }
+
+    void AddScore(float score)
+    {
+        Statics.round_score += (int) (score * Statics.multipler);
+        if(Statics.multipler > 1)
+        {
+            Statics.Score_Text.text = "SCORE= " + Statics.round_score.ToString() + " X" + Statics.multipler.ToString();
+        }
+        else
+        {
+            Statics.Score_Text.text = "SCORE= " + Statics.round_score.ToString();
         }
     }
 }
